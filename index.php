@@ -179,3 +179,45 @@ echo '<br><br>';
 echo "We need $hitTimes hits (20 - 30 mm ) for $nailQuantity nails."
 ?>
 <h1>------------------------------------11.--------------------------------------</h1>
+<?php
+$string = '';
+for ($i = 0; $i < 50; $i++) {
+    $randomNumber = rand(1, 200);
+    if (str_contains($string, $randomNumber)) {
+        $randomNumber = rand(1, 200);
+    } else {
+        $string .= $randomNumber . ' ';
+    }
+}
+echo $string;
+echo '<br>';
+$stringSplit =  explode(' ', $string);
+$string2 = '';
+$stringSplitLength = count($stringSplit);
+for ($i = 0; $i < $stringSplitLength; $i++) {
+    $isPrime = true;
+    for ($j = 2; $j < $stringSplit[$i]; $j++) {
+        if ($stringSplit[$i] % $j == 0) {
+            $isPrime = false;
+        } else {
+            $isPrime == true;
+        }
+    }
+    if ($isPrime == true) {
+        $string2 .= $stringSplit[$i] . ' ';
+    }
+}
+echo $string2;
+echo '<br>';
+$string3 = '';
+$string2Split =  explode(' ', $string2);
+$string2SplitLength = count($string2Split);
+sort($string2Split);
+for ($x = 0; $x < $string2SplitLength; $x++) {
+    if ($x == $string2SplitLength - 1) {
+        echo $string2Split[$x];
+    } else {
+        echo $string2Split[$x] . ' ';
+    }
+}
+?>
